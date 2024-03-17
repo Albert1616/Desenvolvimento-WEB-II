@@ -7,7 +7,7 @@ public class Aluno {
     private Integer id;
     private String primeiroNome;
     private String ultimoNome;
-    private String curso;
+    private Curso curso;
     private String linguagem;
     private String email;
     private List<String> sistemasOperacionas;
@@ -16,7 +16,7 @@ public class Aluno {
     }
 
     
-    public Aluno(String primeiroNome, String ultimoNome, String curso, String linguagem, String email) {
+    public Aluno(String primeiroNome, String ultimoNome, Curso curso, String linguagem, String email) {
         this.primeiroNome = primeiroNome;
         this.ultimoNome = ultimoNome;
         this.curso = curso;
@@ -43,10 +43,10 @@ public class Aluno {
     public void setUltimoNome(String ultimoNome) {
         this.ultimoNome = ultimoNome;
     }
-    public String getCurso() {
+    public Curso getCurso() {
         return curso;
     }
-    public void setCurso(String curso) {
+    public void setCurso(Curso curso) {
         this.curso = curso;
     }
     public String getLinguagem() {

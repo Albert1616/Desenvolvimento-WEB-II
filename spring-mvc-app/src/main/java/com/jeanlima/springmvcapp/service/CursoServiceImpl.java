@@ -8,7 +8,13 @@ import java.util.List;
 
 @Component
 public class CursoServiceImpl implements CursoService {
-    private List<Curso> cursos = new ArrayList<>();
+    private List<Curso> cursos = new ArrayList<Curso>(
+           List.of(
+            new Curso("WEB II"),
+            new Curso("Banco de dados")
+           )
+    );
+
 
     @Override
     public void salvarCurso(Curso curso){
@@ -26,6 +32,6 @@ public class CursoServiceImpl implements CursoService {
 
     @Override
     public List<Curso> getCursos() {
-        return cursos;
+        return this.cursos;
     }
 }

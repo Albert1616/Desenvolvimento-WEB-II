@@ -33,7 +33,6 @@ public class AlunoController {
     public String showFormAluno(Model model){
 
         model.addAttribute("aluno", new Aluno());
-        model.addAttribute("cursos", mockDataService.getCursos());
         model.addAttribute("sistemasOperacionais", mockDataService.getSistemasOperacionais());
         return "aluno/formAluno";
     }

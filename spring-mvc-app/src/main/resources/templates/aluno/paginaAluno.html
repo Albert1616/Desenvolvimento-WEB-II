@@ -13,7 +13,7 @@
   
        <h1><p th:text="' Olá, ' + ${aluno.primeiroNome}"></h1>
         <p th:text="'Seja bem-vindo, ' + ${aluno.primeiroNome} + ' ' + ${aluno.ultimoNome} "></p>
-        <p th:text="'Seu curso é:  ' + ${aluno.curso}"></p>
+        <p th:text="'Seu curso é:  ' + ${aluno.curso.name}"></p>
         <p th:text="'Linguagem favorita:  ' + ${aluno.linguagem}"></p>
         <p>Sistemas Operacionais favoritos: </p>
         <ul>

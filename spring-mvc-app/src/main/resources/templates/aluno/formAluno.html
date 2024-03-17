@@ -6,8 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="/css/styles.css">
     <title>Formulário Aluno</title>
-
-    
 </head>
 <body>
 
@@ -16,7 +14,7 @@
         <p>Último Nome: <input type="text" th:field="*{ultimoNome}" placeholder="Insira seu nome" /></p>
         <p>Curso: 
             <select th:field="*{curso}">
-                <option th:each="curso: ${cursos}" th:value="${curso}" th:text="${curso}">
+                <option th:each="curso: ${session.cursos}" th:value="${curso.name}" th:text="${curso.name}">
             </select>
         </p>
         <p> Linguagem de programação:
