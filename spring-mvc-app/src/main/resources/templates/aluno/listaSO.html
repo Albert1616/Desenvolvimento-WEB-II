@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+    <title>Alunos por sistema operacional</title>
+</head>
+<body>
+<p>Lista de alunos por sistema operacional</p>
+<br><br>
+<p>Tabela com as infos</p>
+<div th:each="lst_alunos : ${alunos_so}">
+    <h2>Sistema operacional</h2>
+    <table >
+        <thead>
+        <tr>
+            <th th:text="Alunos"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="aluno : ${lst_alunos}">
+            <td th:text="${aluno.primeiroNome} + ' ' + ${aluno.ultimoNome}"></td>
+        </tr>
+        </tbody>
+    </table>
+    <h3 th:text="'Total de participantes: ' + ${lst_alunos.size()}"></h3>
+</div>
+
+<br><br>
+</body>
+
+</html>

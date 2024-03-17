@@ -5,14 +5,14 @@ import org.springframework.stereotype.Component;
 @Component
 public class MockDataService {
 
-    private final String[] cursos = {
-        "BTI", "EngSoft", "EngComp", "CienComp"
+    private final String[] linguagens = {
+        "Java", "JavaScript", "C", "Python"
     };
     private final String[] sistemasOperacionais = {
         "OSX", "Windows", "Linux"
     };
-    public String[] getCursos() {
-        return cursos;
+    public String[] getLinguagens() {
+        return linguagens;
     }
     public String[] getSistemasOperacionais() {
         return sistemasOperacionais;
