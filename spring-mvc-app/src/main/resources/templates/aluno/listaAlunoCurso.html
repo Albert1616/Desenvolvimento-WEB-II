@@ -6,13 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="/css/styles.css">
-    <title>Alunos por sistema operacional</title>
+    <title>Alunos por linguagem de programação</title>
+
 </head>
+
 <body>
-<h1>Lista de alunos por sistema operacional</h1>
+
+
+
+<h1>Lista de alunos por curso</h1>
 <br><br>
-<div th:each="lst_alunos : ${alunos_so}">
-    <h2>Sistema operacional</h2>
+<div th:each="lst_alunos : ${alunos_curso}">
+    <h2 th:text="'Curso: ' + ${lst_alunos[0].getCurso().getName()}"></h2>
     <table >
         <thead>
         <tr>

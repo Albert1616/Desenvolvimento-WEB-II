@@ -76,6 +76,8 @@ table {
     border-collapse: collapse;
     width: 100%;
 }
+thead{
+text-aling: left;}
 
 th, td {
     border: 1px solid #ddd;

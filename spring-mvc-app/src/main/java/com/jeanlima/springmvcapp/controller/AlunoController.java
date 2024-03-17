@@ -3,6 +3,7 @@ package com.jeanlima.springmvcapp.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.jeanlima.springmvcapp.model.Curso;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -80,5 +81,18 @@ public class AlunoController {
         model.addAttribute("alunos_so", alunos_so);
         model.addAttribute("sistemas", mockDataService.getSistemasOperacionais());
         return "aluno/listaSO";
+    }
+    @RequestMapping("/getListaAlunoCurso")
+    public String showListaAlunosCurso(Model model, HttpSession session){
+        List<Curso> cursos = (List<Curso>) session.getAttribute("cursos");
+        List<List<Aluno>> alunos_curso = new ArrayList<>();
+        for(Curso curso : cursos){
+            List<Aluno> lst = alunoService.getAlunosByCurso(curso.getName());
+            if(lst != null){
+                alunos_curso.add(lst);
+            }
+        }
+        model.addAttribute("alunos_curso", alunos_curso);
+        return "aluno/listaAlunoCurso";
     }
 }

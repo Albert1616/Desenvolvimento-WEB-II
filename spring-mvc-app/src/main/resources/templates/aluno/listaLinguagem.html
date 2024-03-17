@@ -14,9 +14,8 @@
 
 
 
-<p>Lista de alunos por linguagem de programação </p>
+<h1>Lista de alunos por linguagem de programação </h1>
 <br><br>
-<p>Tabela com as infos</p>
 <div th:each="lst_alunos : ${alunos_linguagem}">
     <h2 th:text="'Linguagem: ' + ${lst_alunos[0].linguagem}"></h2>
     <table >

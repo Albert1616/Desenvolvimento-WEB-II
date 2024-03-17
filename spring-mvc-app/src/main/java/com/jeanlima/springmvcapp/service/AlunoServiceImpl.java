@@ -68,11 +68,11 @@ public class AlunoServiceImpl implements  AlunoService{
     public List<Aluno> getAlunosByCurso(String cursoName) {
         List<Aluno> alunos_curso = new ArrayList<>();
         for(Aluno aluno : alunos){
-            if(aluno.getCurso().getName().equals(cursoName)){
+            if(aluno != null && aluno.getCurso().getName().equals(cursoName)){
                 alunos_curso.add(aluno);
             }
         }
-        return alunos_curso;
+        return alunos_curso.size() != 0 ? alunos_curso : null;
     };
 
     @Override
