@@ -1,10 +1,11 @@
 package com.jeanlima.springmvcapp.model;
 
 import java.util.List;
+import java.util.UUID;
 
 public class Aluno {
 
-    private Integer id;
+    private String id;
     private String primeiroNome;
     private String ultimoNome;
     private Curso curso;
@@ -22,13 +23,16 @@ public class Aluno {
         this.curso = curso;
         this.linguagem = linguagem;
         this.email = email;
+
+        UUID uuid = UUID.randomUUID();
+        this.id = uuid.toString();
     }
 
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
     public String getPrimeiroNome() {

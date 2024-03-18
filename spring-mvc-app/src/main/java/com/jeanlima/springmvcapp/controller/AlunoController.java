@@ -2,6 +2,7 @@ package com.jeanlima.springmvcapp.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 import com.jeanlima.springmvcapp.model.Curso;
 import jakarta.servlet.http.HttpSession;
@@ -10,11 +11,13 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.jeanlima.springmvcapp.model.Aluno;
 import com.jeanlima.springmvcapp.service.AlunoService;
 import com.jeanlima.springmvcapp.service.MockDataService;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 
 @Controller
@@ -43,7 +46,8 @@ public class AlunoController {
 
     @RequestMapping("/addAluno")
     public String showFormAluno(@ModelAttribute("aluno") Aluno aluno,  Model model){
-
+        UUID uuid = UUID.randomUUID();
+        aluno.setId(uuid.toString());
         alunoService.salvarAluno(aluno);
         model.addAttribute("aluno", aluno);
         return "aluno/paginaAluno";
@@ -94,5 +98,19 @@ public class AlunoController {
         }
         model.addAttribute("alunos_curso", alunos_curso);
         return "aluno/listaAlunoCurso";
+    }
+    @RequestMapping("alunoDetails/{alunoId}")
+    public String alunoDetails(@PathVariable("alunoId") String id, Model model){
+        Aluno aluno_detail = alunoService.getAlunoById(id);
+        model.addAttribute("aluno", aluno_detail);
+        return "aluno/paginaAluno";
+    }
+    @RequestMapping("alunoRemove/{alunoId}")
+    public String alunoRemove(@PathVariable("alunoId") String id, Model model, RedirectAttributes redirectAttributes){
+        Aluno aluno_remove = alunoService.getAlunoById(id);
+        alunoService.deletarAluno(aluno_remove);
+        model.addAttribute("alunos",alunoService.getListaAluno());
+        redirectAttributes.addFlashAttribute("successMessage", "Aluno removido");
+        return "redirect:/aluno/getListaAlunos";
     }
 }

@@ -50,9 +50,9 @@ public class AlunoServiceImpl implements  AlunoService{
     }
 
     @Override
-    public Aluno getAlunoById(Integer id) {
+    public Aluno getAlunoById(String id) {
         for (Aluno aluno : alunos) {
-            if(aluno.getId() == id){
+            if(aluno.getId().equals(id)){
                 return aluno;
             }
         }
