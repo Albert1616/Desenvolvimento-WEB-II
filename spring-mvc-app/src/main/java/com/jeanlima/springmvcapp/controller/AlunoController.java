@@ -45,7 +45,12 @@ public class AlunoController {
     }
 
     @RequestMapping("/addAluno")
-    public String showFormAluno(@ModelAttribute("aluno") Aluno aluno,  Model model){
+    public String showFormAluno(@ModelAttribute("aluno") Aluno aluno,  Model model, HttpSession session){
+
+        if(session.getAttribute("cursos") == null){
+            List<Curso> cursos = new ArrayList<>(List.of(new Curso(aluno.getCurso().getName())));
+            session.setAttribute("cursos", cursos);
+        }
         UUID uuid = UUID.randomUUID();
         aluno.setId(uuid.toString());
         alunoService.salvarAluno(aluno);
