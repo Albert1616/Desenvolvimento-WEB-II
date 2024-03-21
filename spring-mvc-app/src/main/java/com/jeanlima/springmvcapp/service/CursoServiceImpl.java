@@ -9,10 +9,9 @@ import java.util.List;
 @Component
 public class CursoServiceImpl implements CursoService {
     private List<Curso> cursos = new ArrayList<Curso>(
-           List.of(
-            new Curso("WEB II"),
-            new Curso("Banco de dados")
-           )
+            List.of(
+                    new Curso("Desenvolvimento web II")
+            )
     );
 
 

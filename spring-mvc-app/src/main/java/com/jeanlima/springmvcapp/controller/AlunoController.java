@@ -76,14 +76,16 @@ public class AlunoController {
     @RequestMapping("/getListaAlunosSo")
     public String showListaAlunoSistemaOp(Model model){
         List<List<Aluno>> alunos_so = new ArrayList<>();
+        List<String> lst_so = new ArrayList<>();
         for(String sistema : mockDataService.getSistemasOperacionais()){
             List<Aluno> lst = alunoService.getAlunosBySo(sistema);
             if(lst != null){
                 alunos_so.add(lst);
+                lst_so.add(sistema);
             }
         }
         model.addAttribute("alunos_so", alunos_so);
-        model.addAttribute("sistemas", mockDataService.getSistemasOperacionais());
+        model.addAttribute("sistemas", lst_so);
         return "aluno/listaSO";
     }
     @RequestMapping("/getListaAlunoCurso")

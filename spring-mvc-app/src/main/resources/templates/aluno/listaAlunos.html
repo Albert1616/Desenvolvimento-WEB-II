@@ -15,7 +15,7 @@
     <ul>
         <li th:each="aluno : ${alunos}">
             <span
-                th:text="${aluno.primeiroNome} +' '+ ${aluno.ultimoNome} + ' - Curso:  ' + ${aluno.curso} " />
+                th:text="${aluno.primeiroNome} +' '+ ${aluno.ultimoNome} + ' - Curso:  ' + ${aluno.curso.getName()} " />
         </li>
     </ul>
     <br><br>
@@ -31,9 +31,8 @@
         <tbody>
           <tr th:each="aluno: ${alunos}">
             <td th:text="${aluno.primeiroNome}"></td>
-            <td th:text="${aluno.curso}"></td>
+            <td th:text="${aluno.curso.getName()}"></td>
             <td th:text="${aluno.linguagem}"></td>
-            <td th:text="${aluno.id}"></td>
             <td><a th:href="@{alunoDetails/{alunoId}(alunoId = ${aluno.id})}">Detalhes</a></td>
             <td><a th:href="@{alunoRemove/{alunoId}(alunoId = ${aluno.id})}">Remover aluno</a></td>
           </tr>

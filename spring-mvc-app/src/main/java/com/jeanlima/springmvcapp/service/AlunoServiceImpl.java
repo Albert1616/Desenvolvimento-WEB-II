@@ -11,25 +11,7 @@ import com.jeanlima.springmvcapp.model.Aluno;
 @Component
 public class AlunoServiceImpl implements  AlunoService{
 
-    public List<Aluno> alunos = new ArrayList<Aluno>(
-            List.of(
-                    new Aluno("Matheus", "Albert", new Curso("Web II"), "Java", "email1"),
-                    new Aluno("Lucas", "Silva", new Curso("Web II"), "JavaScript", "email2"),
-                    new Aluno("João", "Pereira", new Curso("Web II"), "C", "email3"),
-                    new Aluno("Ana", "Santos", new Curso("Web II"), "Python", "amail4"),
-                    new Aluno("Maria", "Souza", new Curso("Web II"), "Java", "email5"),
-                    new Aluno("Pedro", "Oliveira", new Curso("Web II"), "JavaScript", "email6"),
-                    new Aluno("Luiza", "Ferreira", new Curso("Web II"), "C", "email7"),
-                    new Aluno("Fernanda", "Sousa", new Curso("Web II"), "Python", "email8"),
-                    new Aluno("Rafael", "Santana", new Curso("Web II"), "Java", "email9"),
-                    new Aluno("Carlos", "Silveira", new Curso("Web II"), "JavaScript", "email10"),
-                    new Aluno("Beatriz", "Ramos", new Curso("Web II"), "C", "email11"),
-                    new Aluno("Gustavo", "Martins", new Curso("Web II"), "Python", "email12"),
-                    new Aluno("Aline", "Almeida", new Curso("Web II"), "Java", "email13"),
-                    new Aluno("Vinicius", "Carvalho", new Curso("Web II"), "JavaScript", "email14"),
-                    new Aluno("Camila", "Nunes", new Curso("Web II"), "Python", "email15")
-            )
-    );
+    public List<Aluno> alunos = new ArrayList<Aluno>();
 
     @Override
     public void salvarAluno(Aluno aluno) {
